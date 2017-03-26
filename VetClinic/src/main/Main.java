@@ -18,6 +18,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.internal.SessionFactoryImpl;
 import ownersDTO.OwnersMaintainer;
+import patientInterface.InterfaceBuilder;
 
 /**
  *
@@ -28,6 +29,7 @@ public class Main {
     public static void main(String[] args) {
         
         
+         InterfaceBuilder interfaceB = new InterfaceBuilder();
         
          OwnersMaintainer ownMain = new OwnersMaintainer();
          ownMain.setOwnerName("Jan");
