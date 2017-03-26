@@ -13,13 +13,13 @@ import javax.sql.DataSource;
  */
 public class ownersMaintainer {
     
-    private JdbcTemplate jdbcTemplate;
+    //private JdbcTemplate jdbcTemplate;
     protected String OwnerName;
     protected String OwnerSurname;
     protected String OwnerAddress;
     protected String OwnerTelephone;
     
     public void setDataSource(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        //this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 }
