@@ -7,35 +7,43 @@ package patientInterface;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 /**
  *
  * @author Kuba
  */
-public class InterfaceBuilder {
-    private JFrame mainFrame;
-    private JLabel headerLabel;
-    private JLabel statusLabel;
-    private JPanel controlPanel;
-    private JButton addButton;
-    private JEditorPane ownerName;
-    private JEditorPane ownerSurname;
-    private JEditorPane ownerAddress;
-    private JEditorPane ownerTelephone;
+public class InterfaceBuilder extends JFrame  {
     
-    private Map<String, String> prepareGUI() {
+    
+    private static JFrame mainFrame;
+    private static JLabel headerLabel;
+    private static JLabel statusLabel;
+    private static JPanel controlPanel;
+    private static JButton addButton;
+    private static JFormattedTextField ownerName;
+    private static JFormattedTextField ownerSurname;
+    private static JFormattedTextField ownerAddress;
+    private static JFormattedTextField ownerTelephone;
+    private static Map<String, String> fieldsContainer;
+    
+    
+    private void prepareGUI() {
         mainFrame = new JFrame("PLEPLEPLE");
         mainFrame.setSize(400,400);
-        mainFrame.setLayout(new GridLayout(3,1));
+        mainFrame.setLayout(new GridLayout(10,5));
         
         headerLabel = new JLabel("",JLabel.CENTER);
         headerLabel.setText("Dodaj Właściciela");
@@ -51,20 +59,20 @@ public class InterfaceBuilder {
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         
-        ownerName = new JEditorPane();
-        ownerName.setSize(50, 10);
+        ownerName = new JFormattedTextField(5);
+        ownerName.setSize(5, 1);
         ownerName.setName("Name");
         
-        ownerSurname = new JEditorPane();
-        ownerSurname.setSize(50, 10);
+        ownerSurname = new JFormattedTextField(5);
+        ownerSurname.setSize(5, 1);
         ownerSurname.setName("Surname");
         
-        ownerAddress = new JEditorPane();
-        ownerAddress.setSize(50, 10);
+        ownerAddress = new JFormattedTextField(5);
+        ownerAddress.setSize(5, 1);
         ownerAddress.setName("Address");
         
-        ownerTelephone = new JEditorPane();
-        ownerTelephone.setSize(50, 10);
+        ownerTelephone = new JFormattedTextField(10);
+        ownerTelephone.setSize(5, 1);
         ownerTelephone.setName("Telephone");
         
         //Controls
@@ -75,6 +83,7 @@ public class InterfaceBuilder {
         
         addButton.addActionListener(new InterfaceController());
         
+        
         mainFrame.add(headerLabel);
         mainFrame.add(controlPanel);
         mainFrame.add(statusLabel);
@@ -84,12 +93,23 @@ public class InterfaceBuilder {
         mainFrame.add(ownerTelephone);
         mainFrame.add(addButton);
         mainFrame.setVisible(true);
+
+    }
+    
+    public static Map<String, String> getFields() {
+        
+        String Name = ownerName.getText();
+        String Surname = ownerSurname.getText();
+        String Address = ownerAddress.getText();
+        String Telephone = ownerTelephone.getText();
         
         Map<String, String> fieldsContainer = new HashMap<String, String>();
-        fieldsContainer.put(ownerName.getName(), ownerName.getText());
-        fieldsContainer.put(ownerSurname.getName(), ownerSurname.getText());
-        fieldsContainer.put(ownerAddress.getName(), ownerAddress.getText());
-        fieldsContainer.put(ownerTelephone.getName(), ownerTelephone.getText());
+        fieldsContainer.put(ownerName.getName(), Name);
+        fieldsContainer.put(ownerSurname.getName(), Surname);
+        fieldsContainer.put(ownerAddress.getName(), Address);
+        fieldsContainer.put(ownerTelephone.getName(), Telephone);
+        
+        
         
         return fieldsContainer;
     }
