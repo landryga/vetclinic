@@ -39,7 +39,8 @@ public class OwnersKeeperImpl implements OwnersKeeper {
          session.save(ownMain);
          session.getTransaction().commit();
          session.close();
-         sessionFactory.close();
+         
+         //sessionFactory.close();
     }
 
     @Override

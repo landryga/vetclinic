@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patientInterface;
+package addPatientDataInterface;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import javafx.util.Pair;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
@@ -25,7 +27,7 @@ import javax.swing.JTextPane;
  *
  * @author Kuba
  */
-public class InterfaceBuilder extends JFrame  {
+public class OwnerInterfaceBuilder extends AddDataInterfaceBuilder {
     
     
     private static JFrame mainFrame;
@@ -33,15 +35,32 @@ public class InterfaceBuilder extends JFrame  {
     private static JLabel statusLabel;
     private static JPanel controlPanel;
     private static JButton addButton;
-    private static JFormattedTextField ownerName;
-    private static JFormattedTextField ownerSurname;
-    private static JFormattedTextField ownerAddress;
-    private static JFormattedTextField ownerTelephone;
-    private static Map<String, String> fieldsContainer;
+    private static JTextField ownerName;
+    private static JTextField ownerSurname;
+    private static JTextField ownerAddress;
+    private static JTextField ownerTelephone;
+    private static Map<Pair<String, String>, Integer> fieldsContainer;
+    
+    private static void popupMaintainer(String command) {
+        
+    }
+    
+    public OwnerInterfaceBuilder() {
+        
+        fieldsContainer = new LinkedHashMap<Pair<String, String>, Integer>();
+        
+        fieldsContainer.put(new Pair("name", "imię"), 1);
+        fieldsContainer.put(new Pair("surname", "nazwisko"), 1);
+        fieldsContainer.put(new Pair("address", "adres"), 1);
+        fieldsContainer.put(new Pair("telephone", "telefon"), 1);
+        
+        prepareGUI(fieldsContainer, "Dodaj właściciela");
+                
+    }
     
     
-    private void prepareGUI() {
-        mainFrame = new JFrame("PLEPLEPLE");
+    /*private void prepareGUI(String name) {
+        mainFrame = new JFrame(name);
         mainFrame.setSize(400,400);
         mainFrame.setLayout(new GridLayout(10,5));
         
@@ -59,25 +78,26 @@ public class InterfaceBuilder extends JFrame  {
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
         
-        ownerName = new JFormattedTextField(5);
+        ownerName = new JTextField(20);
         ownerName.setSize(5, 1);
         ownerName.setName("Name");
         
-        ownerSurname = new JFormattedTextField(5);
+        ownerSurname = new JTextField(20);
         ownerSurname.setSize(5, 1);
         ownerSurname.setName("Surname");
         
-        ownerAddress = new JFormattedTextField(5);
+        ownerAddress = new JTextField(100);
         ownerAddress.setSize(5, 1);
         ownerAddress.setName("Address");
         
-        ownerTelephone = new JFormattedTextField(10);
+        ownerTelephone = new JTextField(20);
         ownerTelephone.setSize(5, 1);
         ownerTelephone.setName("Telephone");
         
         //Controls
         addButton = new JButton();
         addButton.setActionCommand("add");
+        addButton.setText("Dodaj");
         addButton.setAlignmentX(-20);
         addButton.setAlignmentY(-40);
         
@@ -94,7 +114,7 @@ public class InterfaceBuilder extends JFrame  {
         mainFrame.add(addButton);
         mainFrame.setVisible(true);
 
-    }
+    }*/
     
     public static Map<String, String> getFields() {
         
@@ -114,8 +134,6 @@ public class InterfaceBuilder extends JFrame  {
         return fieldsContainer;
     }
     
-    public InterfaceBuilder() {
-        prepareGUI();
-    }
+    
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package patientInterface;
+package addPatientDataInterface;
 
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,7 @@ import ownersDAO.OwnersKeeperImpl;
  *
  * @author Kuba
  */
-public class InterfaceController implements WindowListener, ActionListener {
+public class EventController implements WindowListener, ActionListener {
     
     
     
@@ -29,7 +29,7 @@ public class InterfaceController implements WindowListener, ActionListener {
         
         
         
-        Map<String, String> fieldsMap = InterfaceBuilder.getFields();
+        Map<String, String> fieldsMap = OwnerInterfaceBuilder.getFields();
         
         
         OwnersKeeperImpl saver = new OwnersKeeperImpl();

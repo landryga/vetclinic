@@ -6,7 +6,11 @@
 package main;
 
 
-import patientInterface.InterfaceBuilder;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.util.Pair;
+import addPatientDataInterface.OwnerInterfaceBuilder;
+import addPatientDataInterface.PatientInterfaceBuilder;
 
 /**
  *
@@ -16,8 +20,8 @@ import patientInterface.InterfaceBuilder;
 public class Main {
     public static void main(String[] args) {
         
-        
-         InterfaceBuilder intbuild = new InterfaceBuilder();
-         
+        //OwnerInterfaceBuilder ownerWindow = new OwnerInterfaceBuilder();
+        PatientInterfaceBuilder patientWindow = new PatientInterfaceBuilder();
+           
     }
 }
