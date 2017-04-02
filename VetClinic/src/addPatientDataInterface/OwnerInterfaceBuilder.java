@@ -55,8 +55,11 @@ public class OwnerInterfaceBuilder extends AddDataInterfaceBuilder {
         fieldsContainer.put(new Pair("telephone", "telefon"), 1);
         
         prepareGUI(fieldsContainer, "Dodaj właściciela");
+        
                 
     }
+    
+    
     
     
     /*private void prepareGUI(String name) {

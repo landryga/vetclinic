@@ -11,6 +11,7 @@ import java.util.Map;
 import javafx.util.Pair;
 import addPatientDataInterface.OwnerInterfaceBuilder;
 import addPatientDataInterface.PatientInterfaceBuilder;
+import mainPanelInterface.MainPanelInterfaceBuilder;
 
 /**
  *
@@ -21,7 +22,9 @@ public class Main {
     public static void main(String[] args) {
         
         //OwnerInterfaceBuilder ownerWindow = new OwnerInterfaceBuilder();
-        PatientInterfaceBuilder patientWindow = new PatientInterfaceBuilder();
+        //PatientInterfaceBuilder patientWindow = new PatientInterfaceBuilder();
+        
+        MainPanelInterfaceBuilder bldr = new MainPanelInterfaceBuilder();
            
     }
 }

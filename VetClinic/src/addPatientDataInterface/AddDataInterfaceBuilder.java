@@ -29,7 +29,8 @@ public abstract class AddDataInterfaceBuilder {
     private static JLabel headerLabel;
     private static JLabel statusLabel;
     private static JPanel controlPanel;
-    private static JButton addButton;
+    protected static JButton addButton;
+    protected static JButton ownersButton;
     private static Map<String, String> labelsContainer;
     
     
@@ -49,17 +50,14 @@ public abstract class AddDataInterfaceBuilder {
         mainFrame = new JFrame(name);
         mainFrame.setSize(400,400);
         mainFrame.setLayout(new GridLayout(10,5));
+        mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         headerLabel = new JLabel("",JLabel.CENTER);
         headerLabel.setText("Dodaj dane");
         statusLabel = new JLabel("",JLabel.CENTER);
         statusLabel.setSize(350,100);
         
-        mainFrame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent windowEvent) {
-                System.exit(0);
-            }
-        });
+        
         
         controlPanel = new JPanel();
         controlPanel.setLayout(new FlowLayout());
@@ -78,16 +76,24 @@ public abstract class AddDataInterfaceBuilder {
         mainFrame.setVisible(true);
         
         //Controls
-        addButton = new JButton();
+        addButton = new JButton("Dodaj");
         addButton.setActionCommand("add");
-        addButton.setText("Dodaj");
         addButton.setAlignmentX(-20);
         addButton.setAlignmentY(-40);
         
+        ownersButton = new JButton("Dane wlasciciela");
+        ownersButton.setActionCommand("owner");
+        ownersButton.setVisible(false);
+        
         addButton.addActionListener(new EventController());
+        ownersButton.addActionListener(new EventController());
         
         
+        mainFrame.add(ownersButton);
         mainFrame.add(addButton);
-        mainFrame.setVisible(true);
+        
+        if(this instanceof PatientInterfaceBuilder) {
+            ownersButton.setVisible(true);
+        }
     }
 }
