@@ -5,10 +5,24 @@
  */
 package mainPanelInterface;
 
+import java.awt.GridLayout;
+import javax.swing.JPanel;
+import patientsDTO.PatientsMaintainer;
+
 /**
  *
  * @author Kuba
  */
-public class PatientsTableInterfaceBuilder {
+public class PatientsTableInterfaceBuilder extends JPanel {
     
+    public  String[] GetColumnNames() {
+        PatientsMaintainer mntnr = new PatientsMaintainer();
+        mntnr.
+    }
+    
+    public PatientsTableInterfaceBuilder() { 
+        super(new GridLayout(1,0));
+            
+        
+    }
 }
